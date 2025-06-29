@@ -1,38 +1,25 @@
-package main
+package cmd
 
 import (
-	// "fmt"
-	// "os"
-	// "strings"
-	// "time"
-	// "context"
-	// "github.com/PFNASS/pfnass-tui"
+    "context"
+    // "errors"
 
-	// tea "github.com/charmbracelet/bubbletea"
-	// "github.com/charmbracelet/lipgloss"
+    "github.com/spf13/cobra"
+    // "github.com/spf13/viper"
+    // "golang.org/x/sync/errgroup"
 )
 
-// type model struct {
-// 	initError 	error
-// 	ctx 		context.Context
-// 	cancel 		context.CancelFunc
-// 	pages		map[pages.PageName]pages.PageInterface
-// 	pageStack 	[]pages.Stack
-// }
+// Execute is the command line applications entry function
+func Execute() error {
+    rootCmd := &cobra.Command{
+        Version: "v0.0.1",
+        Use:     "pfnassctl",
+        Long:    "pfnassctl is a command line tool for managing my homelab server - PFNASS",
+        Example: "pfnassctl --help",
+        RunE: func(cmd *cobra.Command, args []string) error {
+            return nil
+        },
+    }
 
-// func initialModel() model {
-// 	ctx, cancel := context.WithCancel(context.Background())
-// 	helpPage := pages.NewHelpPage()
-// 	pagesMap := map[pages.PageName]pages.PageInterface{
-// 		pages.HelpPage: helpPage,
-// 	}
-// 	pageStack := []pages.Stack{}
-// 	m := model{
-// 		initError: 	nil,
-// 		ctx: 		ctx,
-// 		cancel: 	cancel,
-// 		pages: 		pagesMap,
-// 		pageStack: 	pageStack,
-// 	}
-// 	return m
-// }	
+    return rootCmd.ExecuteContext(context.Background())
+}
