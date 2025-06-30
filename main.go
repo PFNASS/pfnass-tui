@@ -1,13 +1,11 @@
+/*
+Copyright © 2025 NAME HERE <EMAIL ADDRESS>
+
+*/
 package main
 
-import (
-	"log"
-
-	"github.com/PFNASS/pfnass-tui/cmd"
-)
+import "github.com/PFNASS/pfnass-tui/cmd"
 
 func main() {
-	if err := cmd.Execute(); err != nil {
-		log.Fatal(err)
-	}
+	cmd.Execute()
 }
